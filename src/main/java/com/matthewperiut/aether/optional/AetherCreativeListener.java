@@ -34,6 +34,10 @@ public class AetherCreativeListener {
         aetherBlocks.addItem(new ItemStack(AetherBlocks.Log, 1, 1));
         aetherBlocks.addItem(new ItemStack(AetherBlocks.Log, 1, 2));
         aetherBlocks.addItem(new ItemStack(AetherBlocks.Plank));
+        aetherBlocks.addItem(new ItemStack(AetherBlocks.Plank_stairs));
+        aetherBlocks.addItem(new ItemStack(AetherBlocks.Plank_slab));
+        aetherBlocks.addItem(new ItemStack(AetherBlocks.Holystone_stairs));
+        aetherBlocks.addItem(new ItemStack(AetherBlocks.Holystone_slab));
         aetherBlocks.addItem(new ItemStack(AetherBlocks.SkyrootLeaves));
         aetherBlocks.addItem(new ItemStack(AetherBlocks.GoldenOakLeaves));
         aetherBlocks.addItem(new ItemStack(AetherBlocks.SkyrootSapling));

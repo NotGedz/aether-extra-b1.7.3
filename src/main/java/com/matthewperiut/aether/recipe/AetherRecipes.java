@@ -22,6 +22,12 @@ public class AetherRecipes {
                 CraftingRegistry.addShapelessRecipe(new ItemStack(Item.DYE, 2, 5), AetherBlocks.PurpleFlower);
             }
             case CRAFTING_SHAPED -> {
+
+                CraftingRegistry.addShapedRecipe(new ItemStack(AetherBlocks.Plank_slab, 6), "xxx", 'x',AetherBlocks.Plank);
+                CraftingRegistry.addShapedRecipe(new ItemStack(AetherBlocks.Holystone_slab, 6), "xxx", 'x',AetherBlocks.Holystone);
+                CraftingRegistry.addShapedRecipe(new ItemStack(AetherBlocks.Plank_stairs, 4), "x  ", "xx ", "xxx", 'x', AetherBlocks.Plank);
+                CraftingRegistry.addShapedRecipe(new ItemStack(AetherBlocks.Holystone_stairs, 4), "x  ", "xx ", "xxx", 'x', AetherBlocks.Holystone);
+
                 CraftingRegistry.addShapedRecipe(new ItemStack(AetherItems.PickHolystone, 1), "ZZZ", " Y ", " Y ", 'Z', AetherBlocks.Holystone, 'Y', AetherItems.Stick);
                 CraftingRegistry.addShapedRecipe(new ItemStack(AetherItems.PickHolystone, 1), "ZZZ", " Y ", " Y ", 'Z', AetherBlocks.Holystone, 'Y', AetherItems.Stick);
                 CraftingRegistry.addShapedRecipe(new ItemStack(AetherItems.AxeHolystone, 1), "ZZ", "ZY", " Y", 'Z', AetherBlocks.Holystone, 'Y', AetherItems.Stick);

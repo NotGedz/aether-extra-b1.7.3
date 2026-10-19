@@ -1,5 +1,6 @@
 package com.matthewperiut.aether.block;
-
+import com.matthewperiut.aether.block.template.SlabBlockTemplate;
+import com.matthewperiut.aether.block.template.StairsBlockTemplate;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -10,6 +11,9 @@ import net.modificationstation.stationapi.api.util.Identifier;
 import net.modificationstation.stationapi.api.util.Namespace;
 import net.modificationstation.stationapi.api.util.Null;
 
+import static net.minecraft.block.Block.STONE_SOUND_GROUP;
+import static net.minecraft.block.Block.WOOD_SOUND_GROUP;
+
 public class AetherBlocks {
     @Entrypoint.Namespace
     public static Namespace MOD_ID = Null.get();
@@ -18,11 +22,15 @@ public class AetherBlocks {
     public static Block Grass;
     public static Block Quicksoil;
     public static Block Holystone;
+    public static Block Holystone_slab;
+    public static Block Holystone_stairs;
     public static Block Icestone;
     public static Block Aercloud;
     public static Block Aerogel;
     public static Block Log;
     public static Block Plank;
+    public static Block Plank_slab;
+    public static Block Plank_stairs;
     public static Block SkyrootLeaves;
     public static Block GoldenOakLeaves;
     public static Block SkyrootSapling;
@@ -71,37 +79,49 @@ public class AetherBlocks {
         Grass = (new AetherGrass(Identifier.of(MOD_ID, "aether_grass"))).setHardness(0.2F).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "aether_grass");
         Quicksoil = (new Quicksoil(Identifier.of(MOD_ID, "quicksoil"))).setHardness(0.5F).setSoundGroup(Block.SAND_SOUND_GROUP).setTranslationKey(MOD_ID, "quicksoil");
         QuicksoilGlass = (new QuicksoilGlass(Identifier.of(MOD_ID, "quicksoil_glass"))).setLuminance(0.7375F).setHardness(0.2F).setOpacity(0).setSoundGroup(Block.GLASS_SOUND_GROUP).setTranslationKey(MOD_ID, "quicksoil_glass");
-        Holystone = (new Holystone(Identifier.of(MOD_ID, "holystone"))).setHardness(0.5F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "holystone");
+        Holystone = (new Holystone(Identifier.of(MOD_ID, "holystone"))).setHardness(0.5F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "holystone");
         Icestone = (new Icestone(Identifier.of(MOD_ID, "icestone"))).setHardness(3.0F).setSoundGroup(Block.GLASS_SOUND_GROUP).setTranslationKey(MOD_ID, "icestone");
         WhiteFlower = (new AetherFlower(Identifier.of(MOD_ID, "white_flower"))).setHardness(0.0F).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "white_flower");
         PurpleFlower = (new AetherFlower(Identifier.of(MOD_ID, "purple_flower"))).setHardness(0.0F).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "purple_flower");
         Aercloud = (new Aercloud(Identifier.of(MOD_ID, "aercloud"))).setHardness(0.2F).setOpacity(3).setSoundGroup(Block.WOOL_SOUND_GROUP).setTranslationKey(MOD_ID, "aercloud");
-        Aerogel = (new Aerogel(Identifier.of(MOD_ID, "aerogel"))).setHardness(1.0F).setResistance(2000.0F).setOpacity(3).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "aerogel");
-        Log = (new AetherLog(Identifier.of(MOD_ID, "skyroot_log"))).setHardness(2.0F).setSoundGroup(Block.WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "skyroot_log");
-        Plank = (new TemplateBlock(Identifier.of(MOD_ID, "skyroot_planks"), Material.WOOD)).setHardness(2.0F).setResistance(5.0F).setSoundGroup(Block.WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "skyroot_planks");
+        Aerogel = (new Aerogel(Identifier.of(MOD_ID, "aerogel"))).setHardness(1.0F).setResistance(2000.0F).setOpacity(3).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "aerogel");
+        Log = (new AetherLog(Identifier.of(MOD_ID, "skyroot_log"))).setHardness(2.0F).setSoundGroup(WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "skyroot_log");
+        Plank = (new TemplateBlock(Identifier.of(MOD_ID, "skyroot_planks"), Material.WOOD)).setHardness(2.0F).setResistance(5.0F).setSoundGroup(WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "skyroot_planks");
+
+
+
+        Plank_stairs = new StairsBlockTemplate(Identifier.of(MOD_ID,"skyroot_stairs"), Plank).setTranslationKey(Identifier.of(MOD_ID, "skyroot_stairs")).setHardness(1.0F).setResistance(0.1F).setSoundGroup(Block.WOOD_SOUND_GROUP);
+        Plank_slab = new SlabBlockTemplate(Identifier.of(MOD_ID,"skyroot_slab"), Plank).setTranslationKey(Identifier.of(MOD_ID, "skyroot_slab")).setHardness(1.0F).setResistance(0.1F).setSoundGroup(Block.WOOD_SOUND_GROUP);
+        Holystone_stairs = new StairsBlockTemplate(Identifier.of(MOD_ID,"holystone_stairs"), Holystone).setTranslationKey(Identifier.of(MOD_ID, "holystone_stairs")).setHardness(1.0F).setResistance(0.1F).setSoundGroup(Block.WOOD_SOUND_GROUP);
+        Holystone_slab = new SlabBlockTemplate(Identifier.of(MOD_ID,"holystone_slab"), Holystone).setTranslationKey(Identifier.of(MOD_ID, "holystone_slab")).setHardness(1.0F).setResistance(0.1F).setSoundGroup(Block.WOOD_SOUND_GROUP);
+
+
+
+
+
         SkyrootLeaves = (new AetherLeaves(Identifier.of(MOD_ID, "skyroot_leaves"), false)).setHardness(0.2F).setOpacity(1).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "skyroot_leaves");
         GoldenOakLeaves = (new AetherLeaves(Identifier.of(MOD_ID, "golden_leaves"), true)).setHardness(0.2F).setOpacity(1).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "golden_leaves");
         SkyrootSapling = (new AetherSapling(Identifier.of(MOD_ID, "skyroot_sapling"), false)).setTranslationKey(MOD_ID, "skyroot_sapling").setHardness(0.0F).setSoundGroup(Block.DIRT_SOUND_GROUP);
         GoldenOakSapling = (new AetherSapling(Identifier.of(MOD_ID, "golden_oak_sapling"), true)).setTranslationKey(MOD_ID, "golden_oak_sapling").setHardness(0.0F).setSoundGroup(Block.DIRT_SOUND_GROUP);
-        AmbrosiumOre = (new AmbrosiumOre(Identifier.of(MOD_ID, "ambrosium_ore"))).setHardness(3.0F).setResistance(5.0F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "ambrosium_ore");
-        AmbrosiumTorch = (new AmbrosiumTorch(Identifier.of(MOD_ID, "ambrosium_torch"))).setLuminance(0.9375F).setSoundGroup(Block.WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "ambrosium_torch");
-        BurntTorch = (new BurntTorch(Identifier.of(MOD_ID, "burnt_torch"))).setSoundGroup(Block.WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "burnt_torch");
-        ZaniteOre = (new ZaniteOre(Identifier.of(MOD_ID, "zanite_ore"))).setHardness(3.0F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "zanite_ore");
-        ZaniteBlock = (new ZaniteBlock(Identifier.of(MOD_ID, "zanite_block"), Block.IRON_BLOCK.textureId)).setHardness(3.0F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "zanite_block");
-        GravititeOre = (new BlockFloating(Identifier.of(MOD_ID, "gravitite_ore"), false)).setHardness(5.0F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "gravitite_ore");
-        EnchantedGravitite = (new EnchantedGravititeBlock(Identifier.of(MOD_ID, "enchanted_gravitite"), Block.IRON_BLOCK.textureId, true)).setHardness(5.0F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "enchanted_gravitite");
-        DungeonStone = (new DungeonBlock(Identifier.of(MOD_ID, "dungeon_stone"))).setHardness(0.5F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "dungeon_stone");
-        LightDungeonStone = (new DungeonBlock(Identifier.of(MOD_ID, "light_dungeon_stone"))).setHardness(0.5F).setSoundGroup(Block.STONE_SOUND_GROUP).setLuminance(0.75F).setTranslationKey(MOD_ID, "light_dungeon_stone");
-        LockedDungeonStone = (new DungeonBlock(Identifier.of(MOD_ID, "locked_dungeon_stone"))).setHardness(-1.0F).setResistance(1000000.0F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "locked_dungeon_stone");
-        LockedLightDungeonStone = (new DungeonBlock(Identifier.of(MOD_ID, "light_locked_dungeon_stone"))).setHardness(-1.0F).setResistance(1000000.0F).setSoundGroup(Block.STONE_SOUND_GROUP).setLuminance(0.5F).setTranslationKey(MOD_ID, "light_locked_dungeon_stone");
-        Trap = (new Trap(Identifier.of(MOD_ID, "trap"))).setHardness(-1.0F).setResistance(1000000.0F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "trap");
-        Pillar = (new Pillar(Identifier.of(MOD_ID, "pillar"))).setHardness(0.5F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "pillar");
-        Freezer = (new Freezer(Identifier.of(MOD_ID, "freezer"))).setHardness(2.5F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "freezer");
+        AmbrosiumOre = (new AmbrosiumOre(Identifier.of(MOD_ID, "ambrosium_ore"))).setHardness(3.0F).setResistance(5.0F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "ambrosium_ore");
+        AmbrosiumTorch = (new AmbrosiumTorch(Identifier.of(MOD_ID, "ambrosium_torch"))).setLuminance(0.9375F).setSoundGroup(WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "ambrosium_torch");
+        BurntTorch = (new BurntTorch(Identifier.of(MOD_ID, "burnt_torch"))).setSoundGroup(WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "burnt_torch");
+        ZaniteOre = (new ZaniteOre(Identifier.of(MOD_ID, "zanite_ore"))).setHardness(3.0F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "zanite_ore");
+        ZaniteBlock = (new ZaniteBlock(Identifier.of(MOD_ID, "zanite_block"), Block.IRON_BLOCK.textureId)).setHardness(3.0F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "zanite_block");
+        GravititeOre = (new BlockFloating(Identifier.of(MOD_ID, "gravitite_ore"), false)).setHardness(5.0F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "gravitite_ore");
+        EnchantedGravitite = (new EnchantedGravititeBlock(Identifier.of(MOD_ID, "enchanted_gravitite"), Block.IRON_BLOCK.textureId, true)).setHardness(5.0F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "enchanted_gravitite");
+        DungeonStone = (new DungeonBlock(Identifier.of(MOD_ID, "dungeon_stone"))).setHardness(0.5F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "dungeon_stone");
+        LightDungeonStone = (new DungeonBlock(Identifier.of(MOD_ID, "light_dungeon_stone"))).setHardness(0.5F).setSoundGroup(STONE_SOUND_GROUP).setLuminance(0.75F).setTranslationKey(MOD_ID, "light_dungeon_stone");
+        LockedDungeonStone = (new DungeonBlock(Identifier.of(MOD_ID, "locked_dungeon_stone"))).setHardness(-1.0F).setResistance(1000000.0F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "locked_dungeon_stone");
+        LockedLightDungeonStone = (new DungeonBlock(Identifier.of(MOD_ID, "light_locked_dungeon_stone"))).setHardness(-1.0F).setResistance(1000000.0F).setSoundGroup(STONE_SOUND_GROUP).setLuminance(0.5F).setTranslationKey(MOD_ID, "light_locked_dungeon_stone");
+        Trap = (new Trap(Identifier.of(MOD_ID, "trap"))).setHardness(-1.0F).setResistance(1000000.0F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "trap");
+        Pillar = (new Pillar(Identifier.of(MOD_ID, "pillar"))).setHardness(0.5F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "pillar");
+        Freezer = (new Freezer(Identifier.of(MOD_ID, "freezer"))).setHardness(2.5F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "freezer");
         Incubator = (new Incubator(Identifier.of(MOD_ID, "incubator"))).setTranslationKey(MOD_ID, "incubator").setHardness(2.0F);
         Enchanter = (new Enchanter(Identifier.of(MOD_ID, "enchanter"))).setTranslationKey(MOD_ID, "enchanter").setHardness(2.0F);
-        TreasureChest = (new TreasureChest(Identifier.of(MOD_ID, "treasure_chest"))).setHardness(-1.0F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "treasure_chest");
-        Chest = (new AetherChest(Identifier.of("aether_chest")).setHardness(2.5f).setTranslationKey(MOD_ID, "aether_chest").setSoundGroup(Block.WOOD_SOUND_GROUP).ignoreMetaUpdates());
-        ChestMimic = (new MimicBlock(Identifier.of( "mimic"))).setHardness(2.0F).setSoundGroup(Block.WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "mimic");
+        TreasureChest = (new TreasureChest(Identifier.of(MOD_ID, "treasure_chest"))).setHardness(-1.0F).setSoundGroup(STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "treasure_chest");
+        Chest = (new AetherChest(Identifier.of("aether_chest")).setHardness(2.5f).setTranslationKey(MOD_ID, "aether_chest").setSoundGroup(WOOD_SOUND_GROUP).ignoreMetaUpdates());
+        ChestMimic = (new MimicBlock(Identifier.of( "mimic"))).setHardness(2.0F).setSoundGroup(WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "mimic");
         Bed = (new AetherBed(Identifier.of(MOD_ID, "aether_bed"))).setHardness(0.2F).setTranslationKey(MOD_ID, "aether_bed").disableTrackingStatistics().ignoreMetaUpdates();
         //AetherItems.Aercloud = (new ItemBlockAercloud(Aercloud.id));
 
