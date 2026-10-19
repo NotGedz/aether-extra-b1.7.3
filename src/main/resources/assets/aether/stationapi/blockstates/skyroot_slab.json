@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "slab_type=bottom": {
+      "model": "aether:block/skyroot_slab"
+    },
+
+    "slab_type=top": {
+      "model": "aether:block/skyroot_slab",
+      "x": 180
+    },
+
+    "slab_type=double": {
+      "model": "aether:block/plank"
+    }
+  }
+}

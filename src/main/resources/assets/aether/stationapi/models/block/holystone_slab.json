@@ -1,0 +1,6 @@
+{
+  "parent": "aether:block/template/slab",
+  "textures": {
+    "all": "aether:block/Holystone"
+  }
+}

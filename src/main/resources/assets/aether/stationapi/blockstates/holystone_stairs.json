@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "aether:block/holystone_stairs"
+    },
+    "facing=south": {
+      "model": "aether:block/holystone_stairs",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "aether:block/holystone_stairs",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "aether:block/holystone_stairs",
+      "y": 270
+    }
+  }
+}
